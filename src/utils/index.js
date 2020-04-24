@@ -11,6 +11,10 @@ export const createBeforeServerMessage = ({ message: { context, attributes, ...r
     ...context,
     location: window.location.href,
     // please add a ton more info here
+    
+    city: 'Milton',
+    browser: 'Chrome',
+    device: 'Laptop'
   },
   // "attributes" is information that we want to keep track of. This data doesn't need to be
   // pristine at all. You can view it as another way to save arbitrary data for a message.
@@ -21,3 +25,4 @@ export const createBeforeServerMessage = ({ message: { context, attributes, ...r
     clientTimestamp: Date.now(),
   }
 })
+
