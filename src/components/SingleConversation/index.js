@@ -8,11 +8,13 @@ import './style.css';
 class SingleConversation extends PureComponent {
   constructor(props) {
     super(props);
+    
 
     this.state = {
       messageInput: '',
     };
   }
+
 
   onChangeInput = (e) => {
     this.setState({
@@ -32,17 +34,20 @@ class SingleConversation extends PureComponent {
 
   render() {
     const {
-      messages,
+      messages, 
     } = this.props;
 
     const {
       messageInput,
     } = this.state;
+    console.log(messages)
+    
 
     return (
       <div className="drift-sidebar-single-conversation--container">
         <div className="drift-sidebar-single-conversation-body">
-          {messages.map(message => <div key={message.id}>{message.body}</div>)}
+    {(messages).map(message => {var time= new Date(message.createdAt);
+    return <div key={message.id}>{message.body} {time.toLocaleTimeString()}</div>})}
         </div>
         <div className="drift-sidebar-single-conversation-input">
           <input placeholder="Type and press enter to send" value={messageInput} onChange={this.onChangeInput} onKeyDown={this.maybeSubmit} />
